@@ -30,6 +30,8 @@ interface MyFormInputProps {
   radioItemClassName?: string;
   isMultiple?: boolean;
   disabled?: boolean;
+  filePlaceholder?: string;
+  acceptType?: "image/*";
 }
 
 const MyFormInput = ({
@@ -51,6 +53,8 @@ const MyFormInput = ({
   radioItemClassName,
   isMultiple = false,
   disabled = false,
+  filePlaceholder,
+  acceptType,
 }: MyFormInputProps) => {
   const { control, getValues, setValue } = useFormContext();
   const inputValue = useWatch({ control, name }) ?? ""; // Ensure no undefined value
@@ -103,7 +107,7 @@ const MyFormInput = ({
                 <label
                   htmlFor={name}
                   className={cn(
-                    "border-2 border-dashed border-green-500 rounded-lg p-6 flex flex-col items-center justify-center bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors relative overflow-hidden",
+                    "border border-[#7E1F7F40] rounded-lg p-6 flex flex-col items-center justify-center bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors relative overflow-hidden",
                     "min-h-[100px]",
                     error ? "border-red-500" : "",
                     inputClassName
@@ -120,7 +124,7 @@ const MyFormInput = ({
                     </div>
                   ) : (
                     <>
-                      <div className="text-green-500 mb-2">
+                      <div className="text-primary mb-2">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="24"
@@ -137,13 +141,15 @@ const MyFormInput = ({
                           <line x1="12" y1="3" x2="12" y2="15"></line>
                         </svg>
                       </div>
-                      <p className="text-gray-700 text-center">Upload Images</p>
+                      <p className="text-gray-700 text-center">
+                        {filePlaceholder || "Upload Image"}
+                      </p>
                     </>
                   )}
                   <input
                     type="file"
                     id={name}
-                    accept="image/*"
+                    accept={acceptType}
                     multiple={isMultiple}
                     className="hidden"
                     disabled={disabled}
@@ -170,7 +176,7 @@ const MyFormInput = ({
                 rows={rows || 3}
                 disabled={disabled}
                 className={cn(
-                  "w-full px-4 py-3 md:text-[17px] rounded-md focus:outline-none focus:ring-2 bg-[#f5f7f9]",
+                  "w-full px-4 py-3 md:text-[17px] rounded-md focus:outline-none focus:ring-2 border !border-[#7E1F7F40] bg-transparent ",
                   error ? "border-red-500" : "border-gray-300",
                   inputClassName
                 )}
@@ -222,7 +228,7 @@ const MyFormInput = ({
                     : type
                 }
                 className={cn(
-                  "w-full px-4 py-3 md:text-[17px] rounded-md focus:outline-none focus:ring-2 bg-[#f5f7f9]",
+                  "w-full px-4 py-3 md:text-[17px] rounded-md focus:outline-none focus:ring-2 border !border-[#7E1F7F40] bg-transparent",
                   error ? "border-red-500" : "border-gray-300",
                   inputClassName
                 )}

@@ -10,7 +10,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import logo from "../../assets/iamges/logo.png";
+import logo from "@/assets/images/logo.png";
 import {
   SquareUser,
   UserRoundX,
@@ -63,28 +63,28 @@ const SideBar = () => {
   const dispatch = useAppDispatch();
   const router = useRouter();
 
-  const handleLolgout = () => {
+  const handleLogout = () => {
     dispatch(logout());
     removeCookie("token");
     router.push("/login");
   };
   return (
     <Sidebar>
-      <SidebarContent className="!bg-[#1C1C1C] text-white">
+      <SidebarContent className="!bg-white">
         <SidebarGroup />
         <SidebarGroupLabel className="mb-14 mt-8 mx-auto">
-          <Image src={logo} alt="logo" width={190} height={50} />
+          <Image src={logo} alt="logo" width={70} height={50} />
         </SidebarGroupLabel>
         <SidebarGroupContent>
-          <SidebarMenu className="px-4 space-y-3">
+          <SidebarMenu className="px-4 ">
             {items.map((item) => (
               <SidebarMenuItem key={item.title}>
                 <SidebarMenuButton
                   asChild
-                  className={`text-[15px] font-bold px-4 ${
+                  className={`px-4 py-5 bg-gradient-to-r hover:from-blue-600 hover:to-purple-700 hover:text-white font-medium ${
                     pathName === `${item.url}`
-                      ? "bg-white text-black rounded-lg"
-                      : "text-white"
+                      ? "bg-gradient-to-r from-secondary to-primary hover:from-blue-600 hover:to-purple-700 transition-all text-white rounded-lg"
+                      : ""
                   }`}
                 >
                   <a href={item.url}>
@@ -97,16 +97,15 @@ const SideBar = () => {
           </SidebarMenu>
         </SidebarGroupContent>
         <SidebarGroup />
-
       </SidebarContent>
-      <SidebarFooter className="!bg-[#1C1C1C] text-white">
-          <button
-            onClick={handleLolgout}
-            className="py-3 border border-red-400 rounded-lg font-medium text-base"
-          >
-            Log out
-          </button>
-        </SidebarFooter>
+      <SidebarFooter className="!bg-white">
+        <button
+          onClick={handleLogout}
+          className="py-3 border border-primary rounded-lg font-medium text-base"
+        >
+          Log out
+        </button>
+      </SidebarFooter>
     </Sidebar>
   );
 };

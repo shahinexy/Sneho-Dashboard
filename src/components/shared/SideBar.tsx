@@ -12,44 +12,69 @@ import {
 } from "@/components/ui/sidebar";
 import logo from "@/assets/images/logo.png";
 import {
-  SquareUser,
-  UserRoundX,
   Settings,
-  ClipboardMinus,
   LayoutDashboardIcon,
-  Contact,
+  MonitorCheck,
+  Pill,
+  Lightbulb,
+  Hourglass,
+  Users,
+  BriefcaseMedical,
+  BadgeDollarSign,
+  ClipboardPlus,
 } from "lucide-react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useAppDispatch } from "@/redux/hooks";
 import { logout } from "@/redux/features/auth/authSlice";
 import { removeCookie } from "@/utils/cookies";
+import Link from "next/link";
 
 const items = [
   {
-    title: "Dashboard",
+    title: "Home",
     url: "/",
     icon: LayoutDashboardIcon,
   },
   {
-    title: "Report",
-    url: "/report",
-    icon: ClipboardMinus,
+    title: "Doctor Appointment",
+    url: "/doctor-appointment",
+    icon: MonitorCheck,
   },
   {
-    title: "Profile",
-    url: "/profile",
-    icon: Contact,
+    title: "Doctor List",
+    url: "/doctor-list",
+    icon: ClipboardPlus,
   },
   {
-    title: "User",
-    url: "/user",
-    icon: SquareUser,
+    title: "Medicine & Test",
+    url: "/medicine-and-test",
+    icon: Pill,
   },
   {
-    title: "Remove",
-    url: "/remove",
-    icon: UserRoundX,
+    title: "Plan To Conceive",
+    url: "/plan-to-conceive",
+    icon: Lightbulb,
+  },
+  {
+    title: "Pregnant",
+    url: "/pregnant",
+    icon: Hourglass,
+  },
+  {
+    title: "Parents",
+    url: "/parents",
+    icon: Users,
+  },
+  {
+    title: "Doctor Only",
+    url: "/doctor-only",
+    icon: BriefcaseMedical,
+  },
+  {
+    title: "Payment",
+    url: "/payment",
+    icon: BadgeDollarSign,
   },
   {
     title: "Setting",
@@ -81,16 +106,16 @@ const SideBar = () => {
               <SidebarMenuItem key={item.title}>
                 <SidebarMenuButton
                   asChild
-                  className={`px-4 py-5 bg-gradient-to-r hover:from-blue-600 hover:to-purple-700 hover:text-white font-medium ${
+                  className={`text-base px-4 py-5 bg-gradient-to-r hover:from-blue-600 hover:to-purple-700 hover:text-white font-medium ${
                     pathName === `${item.url}`
                       ? "bg-gradient-to-r from-secondary to-primary hover:from-blue-600 hover:to-purple-700 transition-all text-white rounded-lg"
                       : ""
                   }`}
                 >
-                  <a href={item.url}>
+                  <Link href={item.url}>
                     <item.icon />
                     <span>{item.title}</span>
-                  </a>
+                  </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             ))}

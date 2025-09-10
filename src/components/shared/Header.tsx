@@ -1,6 +1,6 @@
 "use client";
 import { useGetMeQuery } from "@/redux/features/auth/authApi";
-import logo from "../../assets/placeholders/user-placeholder.jpg";
+import logo from "@/assets/placeholders/image_placeholder.png";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,26 +9,27 @@ const Header = () => {
   const userData = data?.data;
 
   return (
-    <div className="w-full flex justify-between gap-5 py-3 items-center border-b border-white/50 md:px-5 px-3">
+    <div className="w-full bg-white flex justify-between gap-5 py-3 items-center border-b border-white/50 md:px-5 px-3 mb-5">
       <div className="">
-        <h1 className="text-2xl font-semibold text-primary">
-          Dashboard
-        </h1>
+        <h1 className="text-2xl font-semibold text-primary">Dashboard</h1>
       </div>
 
       <div className="flex gap-2 items-center">
         <div className="text-end">
-          <p className="text-lg font-medium">{userData?.fullName}</p>
-          <p className="text-sm">{userData?.role}</p>
+          <p className="text-lg font-medium">
+            {userData?.fullName || "Unknown"}
+          </p>
+          <p className="text-sm">{userData?.role || "ADMIN"}</p>
         </div>
         <Link href={"/setting"}>
-        <Image
-          src={userData?.profileImage || logo}
-          height={120}
-          width={300}
-          alt="logo"
-          className="w-12 h-12 rounded-full"
-        /></Link>
+          <Image
+            src={userData?.profileImage || logo}
+            height={120}
+            width={300}
+            alt="logo"
+            className="w-12 h-12 rounded-full"
+          />
+        </Link>
       </div>
     </div>
   );

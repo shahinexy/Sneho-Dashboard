@@ -21,6 +21,7 @@ export default {
   				DEFAULT: '#007AE0',
   				foreground: '#007AE0'
   			},
+			grayText: "#1E1E1E",
   			success: '#102F22',
   			info: '#D9F4F9',
   			warning: '#FAE4D0',

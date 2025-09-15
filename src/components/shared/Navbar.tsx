@@ -1,6 +1,4 @@
 "use client";
-import logo from "../../../public/images/loginregister.png";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { HiMenuAlt1 } from "react-icons/hi";
@@ -18,12 +16,7 @@ import { useState } from "react";
 // import { useAppDispatch } from "@/redux/hooks";
 // import { logout } from "@/redux/features/auth/authSlice";
 // import { removeCookie } from "@/utils/cookies";
-import { IoIosNotificationsOutline } from "react-icons/io";
-import MyFormWrapper from "../form/MyFormWrapper";
-import MyFormInput from "../form/MyFormInput";
-import { CiSearch } from "react-icons/ci";
 // import { TbAdjustments } from "react-icons/tb";
-import { FieldValues } from "react-hook-form";
 
 const Navbar = () => {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
@@ -36,26 +29,49 @@ const Navbar = () => {
 
   const navLinks = [
     {
-      path: "/",
-      name: "Properties",
+      title: "Home",
+      url: "/",
     },
     {
-      path: "/contact",
-      name: "Contact",
+      title: "Doctor Appointment",
+      url: "/doctor-appointment",
     },
     {
-      path: "/setting",
-      name: "Setting",
+      title: "Doctor List",
+      url: "/doctor-list",
+    },
+    {
+      title: "Medicine & Test",
+      url: "/medicine-and-test",
+    },
+    {
+      title: "Plan To Conceive",
+      url: "/plan-to-conceive",
+    },
+    {
+      title: "Pregnant",
+      url: "/pregnant",
+    },
+    {
+      title: "Parents",
+      url: "/parents",
+    },
+    {
+      title: "Doctor Only",
+      url: "/doctor-only",
+    },
+    {
+      title: "Payment",
+      url: "/payment",
+    },
+    {
+      title: "Setting",
+      url: "/setting",
     },
   ];
 
   const handleNavLinkClick = () => {
     setIsSheetOpen(false);
-  };
-
-  // handle search
-  const handleSearch = (data: FieldValues) => {
-    console.log(data);
   };
 
   // const handleLolgout = () => {
@@ -65,7 +81,7 @@ const Navbar = () => {
   // };
 
   return (
-    <div className="bg-white w-full mb-5 px-5 flex justify-between items-center gap-5 shadow-md shadow-gray-300">
+    <div>
       {/* small device menu */}
       <div className="md:hidden mt-2">
         <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
@@ -78,25 +94,25 @@ const Navbar = () => {
             </SheetHeader>
 
             <nav className="mt-5">
-              <ul className="space-y-2 flex flex-col z-40">
+              <ul className="space-y-1 flex flex-col z-40">
                 {navLinks.map((link) => (
                   <Link
-                    key={link.path}
-                    href={`${link.path}`}
+                    key={link.url}
+                    href={`${link.url}`}
                     className={`${
-                      pathName === `${link.path}`
-                        ? "bg-primary text-black px-5 py-2 rounded-3xl"
+                      pathName === `${link.url}`
+                        ? "bg-primary text-white px-5 py-2 rounded-xl"
                         : "text-black"
-                    } hover:bg-primary hover:text-black px-5 py-2 rounded-3xl duration-300`}
+                    } hover:bg-primary hover:text-white px-5 py-2 rounded-xl duration-300`}
                     onClick={handleNavLinkClick}
                   >
-                    {link.name}
+                    {link.title}
                   </Link>
                 ))}
               </ul>
             </nav>
             <SheetClose asChild>
-              <Button variant="outline" className="mt-5 w-full bg-primary">
+              <Button variant="outline" className="mt-5 w-full bg-primary text-white">
                 Close
               </Button>
             </SheetClose>
@@ -104,52 +120,6 @@ const Navbar = () => {
         </Sheet>
       </div>
 
-      <div className="flex gap-5 items-center">
-        <Image
-          src={logo}
-          height={120}
-          width={300}
-          alt="logo"
-          className="md:w-52 w-28"
-        />
-
-        <div className={`${pathName !== "/" ? "hidden pt-3" : "pt-3"}`}>
-          <MyFormWrapper onSubmit={handleSearch}>
-            <div className="relative">
-              <MyFormInput
-                name="search"
-                type="text"
-                inputClassName="rounded-full px-10"
-                placeholder="Search property"
-              />
-              <CiSearch className="absolute top-3 left-3 text-2xl" />
-            </div>
-          </MyFormWrapper>
-        </div>
-      </div>
-
-      {/* larg device menu  */}
-      <div className="md:flex hidden items-center gap-7 ">
-        <ul className="lg:space-x-5 space-x-2">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              href={`${link.path}`}
-              className={`${
-                pathName === `${link.path}`
-                  ? "bg-secondary text-primary px-5 py-2 rounded-3xl"
-                  : "text-black"
-              } hover:bg-secondary hover:text-primary px-5 py-2 rounded-3xl duration-300`}
-            >
-              {link.name}
-            </Link>
-          ))}
-        </ul>
-
-        <div className="">
-          <IoIosNotificationsOutline className="text-2xl" />
-        </div>
-      </div>
 
       {/* {userData ? (
         <div className="flex gap-3">

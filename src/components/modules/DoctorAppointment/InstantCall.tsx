@@ -60,7 +60,7 @@ const InstantCall = () => {
             </div>
           </div>
           <div className="flex gap-3">
-            <button className="flex ga2 justify-center items-center w-full px-4 py-3 bg-gradient-to-r from-secondary to-primary hover:from-blue-600 hover:to-purple-700 transition-all text-white rounded-lg duration-300">
+            <button className="flex gap-2 justify-center items-center w-full px-4 py-3 bg-gradient-to-r from-secondary to-primary hover:from-blue-600 hover:to-purple-700 transition-all text-white rounded-lg duration-300">
               <Captions /> Notify Doctor
             </button>
             <Image

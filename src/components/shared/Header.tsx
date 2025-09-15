@@ -10,7 +10,9 @@ const Header = () => {
 
   return (
     <div className="w-full bg-white flex justify-between gap-5 py-3 items-center border-b border-white/50 md:px-5 px-3 mb-5">
-      <Navbar />
+      <div className="md:hidden flex">
+        <Navbar />
+      </div>
       <div className="">
         <h1 className="md:text-2xl text-xl font-semibold text-primary">
           Dashboard

@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import MyTitle from "@/components/common/MyTitle";
 import {
   Table,
   TableBody,
@@ -14,6 +15,7 @@ const PostList = () => {
   const connections = [1, 2, 3, 4, 5, 6];
   return (
     <div>
+            <MyTitle title="Plan To Conceive" />
       <Table>
         <TableHeader>
           <TableRow>

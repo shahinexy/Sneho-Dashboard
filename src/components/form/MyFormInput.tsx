@@ -79,7 +79,7 @@ const MyFormInput = ({
         <label
           htmlFor={name}
           className={cn(
-            "md:text-xl text-[15px] text-grayText font-medium mb-1",
+            "text-base text-black mb-1",
             labelClassName
           )}
         >

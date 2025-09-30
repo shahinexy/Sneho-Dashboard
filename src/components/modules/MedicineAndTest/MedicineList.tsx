@@ -49,7 +49,7 @@ const MedicineList = () => {
               </TableCell>
               <TableCell>{item?.title || "Square Pharma"}</TableCell>
               <TableCell>{item?.region || "Active"}</TableCell>
-              <TableCell><EllipsisVertical /></TableCell>
+              <TableCell> <EllipsisVertical /></TableCell>
             </TableRow>
           ))}
         </TableBody>

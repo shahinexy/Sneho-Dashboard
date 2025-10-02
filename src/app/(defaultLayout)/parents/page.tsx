@@ -1,11 +1,10 @@
-
-import Pregnant from "@/components/modules/Pregnant/Pregnant";
+import Parents from "@/components/modules/Parents/Parents";
 
 
 const page = () => {
     return (
         <div>
-            <Pregnant />
+            <Parents />
         </div>
     );
 };

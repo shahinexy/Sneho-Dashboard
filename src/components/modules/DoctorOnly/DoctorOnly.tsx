@@ -12,12 +12,12 @@ import { EllipsisVertical } from "lucide-react";
 import Image from "next/image";
 import AddMedicineModal from "../MedicineAndTest/AddMedicineModal";
 
-const PostList = () => {
+const DoctorOnly = () => {
   const connections = [1, 2, 3, 4, 5, 6];
   return (
     <div>
       <div className="flex justify-between gap-2 mb-6">
-        <MyTitle title="Plan To Conceive" />
+        <MyTitle title="Doctor Only" />
         <AddMedicineModal />
       </div>
 
@@ -69,4 +69,4 @@ const PostList = () => {
   );
 };
 
-export default PostList;
+export default DoctorOnly;

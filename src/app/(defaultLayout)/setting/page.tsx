@@ -1,11 +1,10 @@
-
-import Pregnant from "@/components/modules/Pregnant/Pregnant";
+import SettingTab from "@/components/modules/Setting/SettingTab";
 
 
 const page = () => {
     return (
         <div>
-            <Pregnant />
+            <SettingTab />
         </div>
     );
 };

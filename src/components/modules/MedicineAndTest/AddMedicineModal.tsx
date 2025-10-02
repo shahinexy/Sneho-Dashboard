@@ -1,3 +1,4 @@
+"use client"
 import MyFormInput from "@/components/form/MyFormInput";
 import MyFormWrapper from "@/components/form/MyFormWrapper";
 import {
